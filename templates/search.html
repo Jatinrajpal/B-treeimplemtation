@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+{% block content %}
+		<div class="content-section">
+			<form method="Post" action="">
+				{{form.hidden_tag()}}
+				<fieldset class="form-group">
+					<legend class="border-bottom mb-4">
+						search product with product id
+					</legend>
+					<div class="form-group">
+                    {{ form.id1.label(class="form-control-label") }}
+
+                    {% if form.id1.errors %}
+                        {{ form.id1(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.id1.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.id1(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                	
+				</fieldset>
+					<div class="form-group">
+						{{form.search(class="btn btn-outline-info")}}					
+					</div>
+					
+			</form>
+		</div>
+		<div class="border-top pt-3">
+			<small class="text-muted">
+				Already know?<a class="ml-2" href="{{url_for('home')}}">	you already know? </a>			
+			</small>
+			
+		</div>
+{%endblock content%}
